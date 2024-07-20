@@ -1,6 +1,6 @@
 // 4-bit ALU slice design
 // Mike McCann 7/5/2024
-// tested on  a Altera/Intel Cyclone II EP2C20F484C7 FPGA
+// tested on an Altera/Intel Cyclone II EP2C20F484C7 FPGA
 
 module tt_um_kb2ghz_xalu (
     input  wire [7:0] ui_in,    // Dedicated inputs
