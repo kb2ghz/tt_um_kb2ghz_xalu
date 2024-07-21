@@ -163,6 +163,5 @@ assign NEG_ZERO = 'd0 & 'd1 & 'd2 & 'd3;
 		(('da1 & 'db1) | (~'da1 & ~'db1)) &
 		(('da2 & 'db2) | (~'da2 & ~'db2)) &
 		(('da3 & 'db3) | (~'da3 & ~'db3));
-             
 endmodule
 
