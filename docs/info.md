@@ -9,12 +9,13 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+The project is a 4-bit ALU section that is usfull in mini and micro computer CPUs.
 
 ## How to test
 
-Explain how to use your project
+This device can be tested by inputting data on the two input ports (A/B), a function code (F0, F1, F2) and 
+observing the output on pins d0, d1, d2, d3.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+This project was tested uising an Altera FPGA (EP2C20F484C7).
