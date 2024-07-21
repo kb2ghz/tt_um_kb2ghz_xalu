@@ -12,9 +12,7 @@ module tt_um_kb2ghz_xalu (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-
-
-module  tt_um_kb2fgz_xalu
+	
 // define two 4-bit data input ports 
 
 // port A
