@@ -16,7 +16,7 @@ module tt_um_kb2ghz_xalu (
 // define two 4-bit data input ports 
 
 // port A
-'define ui_in[0]  da0
+`define ui_in[0]  da0
 'define ui_in[1]  da1
 'define ui_in[2]  da2
 'define ui_in[3]  da3
