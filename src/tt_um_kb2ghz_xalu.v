@@ -138,28 +138,28 @@ assign `d3 = `COM ^ d3int;
 
 // function code decode
 
-assign ADD = ~'F2 & ~'F1 & ~'F0;     // 0
-assign AND = ~'F2 & ~'F1 & 'F0;      // 1
-assign OR = ~'F2 & 'F1 & ~'F0;       // 2
+assign ADD = ~`F2 & ~`F1 & ~`F0;     // 0
+assign AND = ~`F2 & ~`F1 & `F0;      // 1
+assign OR = ~`F2 & `F1 & ~`F0;       // 2
 assign XOR = ~'F2 & 'F1 & 'F0;       // 3
-assign PASSA = 'F2 & ~'F1 & ~'F0;    // 4
-assign PASSB = 'F2 & ~'F1 & 'F0;     // 5
-assign SHR = 'F2 & 'F1 & ~'F0;       // 6
-assign SHL = 'F2 & 'F1 & 'F0;        // 7
+assign PASSA = `F2 & ~`F1 & ~`F0;    // 4
+assign PASSB = `F2 & ~`F1 & `F0;     // 5
+assign SHR = `F2 & `F1 & ~`F0;       // 6
+assign SHL = `F2 & `F1 & `F0;        // 7
 
 // carry outputs
 
-assign 'co_left = (SHL & 'da3) | (ADD & ('da3 & 'db3 | bit2cy & ('da3 | 'db3)));
-assign 'co_right = SHR & 'da0;
+assign `co_left = (SHL & `da3) | (ADD & (`da3 & `db3 | bit2cy & (`da3 | `db3)));
+assign `co_right = SHR & `da0;
 
 // output status
 
-assign ZERO = ~'d0 & ~'d1 & ~'d2 & ~'d3;
-assign NEG_ZERO = 'd0 & 'd1 & 'd2 & 'd3;
+assign `ZERO = ~`d0 & ~`d1 & ~`d2 & ~`d3;
+assign `NEG_ZERO = `d0 & `d1 & `d2 & `d3;
 
-assign 'EQU = (('da0 & 'db0) | (~'da0 & ~'db0)) &
-		(('da1 & 'db1) | (~'da1 & ~'db1)) &
-		(('da2 & 'db2) | (~'da2 & ~'db2)) &
-		(('da3 & 'db3) | (~'da3 & ~'db3));
+assign `EQU = ((`da0 & `db0) | (~`da0 & ~`db0)) &
+	((`da1 & `db1) | (~`da1 & ~`db1)) &
+	((`da2 & `db2) | (~`da2 & ~`db2)) &
+	((`da3 & `db3) | (~`da3 & ~`db3));
 endmodule
 
