@@ -59,14 +59,15 @@ module tt_um_kb2ghz_xalu (
 
 // enable path settings
 
-assign uio_oe[0] = 1b'1';  // output signal
-assign uio_oe[1] = 1b'0';
-assign uio_oe[2] = 1b'0';
-assign uio_oe[3] = 1b'1';  // output signal
-assign uio_oe[4] = 1b'0';  
-assign uio_oe[5] = 1b'0';
-assign uio_oe[6] = 1b'0';
-assign uio_oe[7] = 1b'0';
+uio_oe = 8b'00001001;
+//assign uio_oe[0] = 1b'1';  // output signal
+//assign uio_oe[1] = 1b'0';
+//assign uio_oe[2] = 1b'0';
+//assign uio_oe[3] = 1b'1';  // output signal
+//assign uio_oe[4] = 1b'0';  
+//assign uio_oe[5] = 1b'0';
+//assign uio_oe[6] = 1b'0';
+//assign uio_oe[7] = 1b'0';
 
 // list unused inputs to prevent warnings
 wire _unused =&{ena,clk, rst_in, 1'b0};
