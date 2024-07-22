@@ -59,7 +59,7 @@ module tt_um_kb2ghz_xalu (
 
 // enable path settings
 
-uio_oe = 8b'00001001;
+assign uio_oe = 8b'00001001;
 //assign uio_oe[0] = 1b'1';  // output signal
 //assign uio_oe[1] = 1b'0';
 //assign uio_oe[2] = 1b'0';
