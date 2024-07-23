@@ -109,7 +109,7 @@ assign d2int = (ADD & (`da2 ^ `db2 ^ bit1cy)) |
 assign d3int = (ADD & (`da3 ^ `db3 ^ bit2cy)) |
 		(AND & `da3 & `db3)   |
 		(OR & (`da3 | `db3))  |
-		(XOR & ('da3 ^ 'db3)) |
+	        (XOR & (`da3 ^ `db3)) |
 		(PASSA & `da3) |
 		(PASSB & `db3) |
 		(SHL & `da2) |
