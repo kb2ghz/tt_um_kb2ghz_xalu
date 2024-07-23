@@ -13,7 +13,7 @@ module tt_um_kb2ghz_xalu (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-assign uio_oe = 8b'00001001;
+assign uio_oe = 8'b00001001;
 
 // define two 4-bit data input ports 
 
