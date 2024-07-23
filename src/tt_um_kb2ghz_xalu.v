@@ -12,7 +12,9 @@ module tt_um_kb2ghz_xalu (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-	
+
+assign uio_oe = 8b'00001001;
+
 // define two 4-bit data input ports 
 
 // port A
@@ -57,9 +59,6 @@ module tt_um_kb2ghz_xalu (
 
 `define uio_out[3]  COM 
 
-// enable path settings
-
-assign uio_oe = 8b'00001001;
 //assign uio_oe[0] = 1b'1';  // output signal
 //assign uio_oe[1] = 1b'0';
 //assign uio_oe[2] = 1b'0';
