@@ -46,9 +46,9 @@ pinout:
   uio[1]: "ci_left"
   uio[2]: "ci_right"
   uio[3]: "COM"
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
+  uio[4]: "F0"
+  uio[5]: "F1"
+  uio[6]: "F2"
   uio[7]: ""
 
 # Do not change!
