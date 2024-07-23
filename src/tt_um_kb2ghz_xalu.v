@@ -18,59 +18,49 @@ assign uio_oe = 8'b00001001;
 // define two 4-bit data input ports 
 
 // port A
-`define ui_in[0]  da0
-`define ui_in[1]  da1
-`define ui_in[2]  da2
-`define ui_in[3]  da3
+`define da0 ui_in[0] 
+`define da1 ui_in[1]  
+`define da2 ui_in[2]  
+`define da3 ui_in[3]  
 
 // port B
-`define ui_in[4]  db0
-`define ui_in[5]  db1
-`define ui_in[6]  db2
-`define ui_in[7]  db3
+`define db0 ui_in[4] 
+`define db1 ui_in[5] 
+`define db2 ui_in[6]
+`define db3 ui_in[7] 
 
 // define an 4-bit data output port
 
-`define ui_out[0] d0
-`define ui_out[1] d1 
-`define ui_out[2] d2 
-`define ui_out[3] d3 
+`define d0 ui_out[0] 
+`define d1 ui_out[1]  
+`define d2 ui_out[2]  
+`define d3 ui_out[3]  
 
 // define carry outputs
 
-`define ui_out[4] co_left   // left carry output
-`define ui_out[5] co_right  // right carry ouput
+`define co_left ui_out[4]   // left carry output
+`define co_right ui_out[5]  // right carry ouput
 
 // comparator output
 
-`define ui_out[6]  EQU    //  A=B
+`define EQU ui_out[6]      //  A=B
 
 // zero detect
 
-`define ui_out[7]  ZERO     // output = +zero
-`define uio_out[0] NEG_ZERO // output = -zero
+`define ZERO ui_out[7]       // output = +zero
+`define NEG_ZERO uio_out[0]  // output = -zero
 
 // define carry inputs
 
-`define uio_in[1]     ci_left   // left side carry input
-`define uio_in[2]     ci_right  // right side carry input
+`define ci_left uio_in[1]        // left side carry input
+`define ci_right uio_in[2]       // right side carry input
 
 // complment output mode
 
-`define uio_out[3]  COM 
-
-//assign uio_oe[0] = 1b'1';  // output signal
-//assign uio_oe[1] = 1b'0';
-//assign uio_oe[2] = 1b'0';
-//assign uio_oe[3] = 1b'1';  // output signal
-//assign uio_oe[4] = 1b'0';  
-//assign uio_oe[5] = 1b'0';
-//assign uio_oe[6] = 1b'0';
-//assign uio_oe[7] = 1b'0';
+`define COM uio_out[3]  
 
 // list unused inputs to prevent warnings
 wire _unused =&{ena,clk, rst_in, 1'b0};
-
 	
 output `co_left;
 output `co_right;
