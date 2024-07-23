@@ -36,6 +36,11 @@ assign uio_oe = 8'b00001001;
 `define d2 ui_out[2]  
 `define d3 ui_out[3]  
 
+// function code inputs
+`define F0 uio_in[4]
+`define F1 uio_in[5]
+`define F2 uio_in[6]	
+	
 // define carry outputs
 
 `define co_left ui_out[4]   // left carry output
