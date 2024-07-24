@@ -43,16 +43,16 @@ assign uio_oe = 8'b00001001;
 	
 // define carry outputs
 
-`define co_left ui_out[4]   // left carry output
-`define co_right ui_out[5]  // right carry ouput
+`define co_left uo_out[4]   // left carry output
+`define co_right uo_out[5]  // right carry ouput
 
 // comparator output
 
-`define EQU ui_out[6]      //  A=B
+`define EQU uo_out[6]      //  A=B
 
 // zero detect
 
-`define ZERO ui_out[7]       // output = +zero
+`define ZERO uo_out[7]       // output = +zero
 `define NEG_ZERO uio_out[0]  // output = -zero
 
 // define carry inputs
