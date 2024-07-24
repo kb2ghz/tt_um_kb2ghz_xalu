@@ -31,10 +31,10 @@ assign uio_oe = 8'b00001001;
 
 // define an 4-bit data output port
 
-`define d0 ui_out[0] 
-`define d1 ui_out[1]  
-`define d2 ui_out[2]  
-`define d3 ui_out[3]  
+`define d0 uo_out[0] 
+`define d1 uo_out[1]  
+`define d2 uo_out[2]  
+`define d3 uo_out[3]  
 
 // function code inputs
 `define F0 uio_in[4]
@@ -65,7 +65,7 @@ assign uio_oe = 8'b00001001;
 `define COM uio_out[3]  
 
 // list unused inputs to prevent warnings
-wire _unused =&{ena,clk, rst_in, 1'b0};
+wire _unused =&{ena,clk, rst_i, 1'b0};
 	
 // output `co_left;
 // output `co_right;
