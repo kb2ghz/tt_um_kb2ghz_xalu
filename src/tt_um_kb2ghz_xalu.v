@@ -53,7 +53,7 @@ assign uio_oe = 8'b00001001;
 // zero detect
 
 `define ZERO uo_out[7]       // output = +zero
-`define NEG_ZERO uio_out[0]  // output = -zero
+`define NEG_ZERO uo_out[6]  // output = -zero
 
 // define carry inputs
 
