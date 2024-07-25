@@ -65,19 +65,7 @@ assign uio_oe = 8'b00001001;
 `define COM uio_out[3]  
 
 // list unused inputs to prevent warnings
-wire _unused =&{ena,clk, uio_in[0], uio_in[3], uio_in[7], rst_n, 1'b0};
-	
-// output `co_left;
-// output `co_right;
-// input `ci_left;
-// input `ci_right;
-// input `da0, `da1, `da2, `da3;  // input port A
-// input `db0, `db1, `db2, `db3;  // input port B
-// output `d0, `d1, `d2, `d3;     // output port
-// output `ZERO, `NEG_ZERO;     // zero detector
-// output `EQU;                // A = B
-// input `COM;                 // 1's complement mode
-// input `F0, `F1, `F2;          // function code input
+	wire _unused =&{ena,clk, uio_in[0], uio_in[3], uio_in[7], uio_out[1], uio_out[2], uio_out[4], uio_out[5], uio_out[6], uio_out[7], rst_n, 1'b0};
 
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
 
