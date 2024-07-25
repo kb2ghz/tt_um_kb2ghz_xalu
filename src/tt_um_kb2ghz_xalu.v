@@ -65,7 +65,7 @@ assign uio_oe = 8'b00001001;
 `define COM uio_out[3]  
 
 // list unused inputs to prevent warnings
-wire _unused =&{ena,clk, rst_n, 1'b0};
+wire _unused =&{ena,clk, uio_in[0,3,7], rst_n, 1'b0};
 	
 // output `co_left;
 // output `co_right;
