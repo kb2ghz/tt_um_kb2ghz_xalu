@@ -63,7 +63,7 @@ assign uio_oe = 8'b00001001;
 // complment output mode
 
 `define COM uio_in[3]
-wire COM_INT;
+output wire COM_INT;
 assign COM_INT = `COM;
 
 // list unused inputs to prevent warnings
