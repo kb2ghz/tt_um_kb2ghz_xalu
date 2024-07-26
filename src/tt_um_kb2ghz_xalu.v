@@ -65,7 +65,7 @@ assign uio_oe = 8'b00001001;
 `define COM uio_in[3]  
 
 // list unused inputs to prevent warnings
-	wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1], uio_out[2], uio_out[3], uio_out[4], uio_out[5], uio_out[6], uio_out[7], rst_n, 1'b0};
+wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1-7], rst_n, 1'b0};
 
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
 
