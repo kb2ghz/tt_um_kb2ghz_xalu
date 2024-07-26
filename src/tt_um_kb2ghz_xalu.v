@@ -62,11 +62,11 @@ assign uio_oe = 8'b00001001;
 `define ci_right uio_in[2]       // right side carry input
 
 // list unused inputs to prevent warnings
-wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1-7], rst_n, 1'b0};
+wire _unused =&{ena,clk, uio_in[0], uio_out[1-7], rst_n, 1'b0};
 
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
 
-wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR;
+wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR, COM;
 wire d0int, d1int, d2int, d3int;
 
 assign d0int = (ADD & (`da0 ^ `db0 ^ `ci_right)) |
@@ -76,7 +76,8 @@ assign d0int = (ADD & (`da0 ^ `db0 ^ `ci_right)) |
 		(PASSA & `da0) |
 		(PASSB & `db0) |
 		(SHL & `ci_right) |
-		(SHR & `da1);
+	        (SHR & `da1) |
+	        (COM & ~`da0);
 
 assign d1int = (ADD & (`da1 ^ `db1 ^ bit0cy)) |
 		(AND & `da1 & `db1)   |
@@ -85,7 +86,8 @@ assign d1int = (ADD & (`da1 ^ `db1 ^ bit0cy)) |
 		(PASSA & `da1) |
 		(PASSB & `db1) |
 		(SHL & `da0) |
-		(SHR & `da2);
+	        (SHR & `da2) |
+	        (COM & ~`da1);
 
 assign d2int = (ADD & (`da2 ^ `db2 ^ bit1cy)) |
 		(AND & `da2 & `db2)   |
@@ -94,7 +96,8 @@ assign d2int = (ADD & (`da2 ^ `db2 ^ bit1cy)) |
 		(PASSA & `da2) |
 		(PASSB & `db2) |
 		(SHL & `da1) |
-		(SHR & `da3);
+	        (SHR & `da3) |
+	        (COM & ~`da2);
 
 assign d3int = (ADD & (`da3 ^ `db3 ^ bit2cy)) |
 		(AND & `da3 & `db3)   |
@@ -103,7 +106,8 @@ assign d3int = (ADD & (`da3 ^ `db3 ^ bit2cy)) |
 		(PASSA & `da3) |
 		(PASSB & `db3) |
 		(SHL & `da2) |
-		(SHR & `ci_left);
+	        (SHR & `ci_left) |
+	        (COM & ~`da3);
 
 assign bit0cy = `da0 & `db0 | `ci_right & (`da0 | `db0);
 assign bit1cy = `da1 & `db1 | bit0cy & (`da1 | `db1);
