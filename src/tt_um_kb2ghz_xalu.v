@@ -64,7 +64,7 @@ assign uio_oe = 8'b00001001;
 
 `define COM uio_in[3]
 wire COM_INT;
-assign COM_INT = COM;
+assign COM_INT = `COM;
 
 // list unused inputs to prevent warnings
 wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1-7], rst_n, 1'b0};
