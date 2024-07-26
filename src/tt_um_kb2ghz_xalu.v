@@ -62,7 +62,9 @@ assign uio_oe = 8'b00001001;
 
 // complment output mode
 
-`define COM uio_in[3]  
+`define COM uio_in[3]
+wire COM_INT;
+assign COM_INT = COM;
 
 // list unused inputs to prevent warnings
 wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1-7], rst_n, 1'b0};
@@ -114,10 +116,10 @@ assign bit2cy = `da2 & `db2 | bit1cy & (`da2 | `db2);
 
 // inverting output mode
 
-assign `d0 = `COM ^ d0int;
-assign `d1 = `COM ^ d1int;
-assign `d2 = `COM ^ d2int;
-assign `d3 = `COM ^ d3int;
+assign `d0 = COM_INT ^ d0int;
+assign `d1 = COM_INT ^ d1int;
+assign `d2 = COM_INT ^ d2int;
+assign `d3 = COM_INT ^ d3int;
 
 // function code decode
 
