@@ -40,6 +40,7 @@ assign uio_oe = 8'b00001001;
 `define F0 uio_in[4]
 `define F1 uio_in[5]
 `define F2 uio_in[6]	
+`define F3 uio_in[7]
 	
 // define carry outputs
 
@@ -59,10 +60,6 @@ assign uio_oe = 8'b00001001;
 
 `define ci_left uio_in[1]        // left side carry input
 `define ci_right uio_in[2]       // right side carry input
-
-// complment output mode
-
-`define COM uio_in[3]
 
 // list unused inputs to prevent warnings
 wire _unused =&{ena,clk, uio_in[0], uio_in[7], uio_out[1-7], rst_n, 1'b0};
@@ -112,24 +109,18 @@ assign bit0cy = `da0 & `db0 | `ci_right & (`da0 | `db0);
 assign bit1cy = `da1 & `db1 | bit0cy & (`da1 | `db1);
 assign bit2cy = `da2 & `db2 | bit1cy & (`da2 | `db2);
 
-// inverting output mode
-
-assign `d0 = COM ^ d0int;
-assign `d1 = COM ^ d1int;
-assign `d2 = COM ^ d2int;
-assign `d3 = COM ^ d3int;
-
 // function code decode
 
-assign ADD = ~`F2 & ~`F1 & ~`F0;     // 0
-assign AND = ~`F2 & ~`F1 & `F0;      // 1
-assign OR = ~`F2 & `F1 & ~`F0;       // 2
-assign XOR = ~`F2 & `F1 & `F0;       // 3
-assign PASSA = `F2 & ~`F1 & ~`F0;    // 4
-assign PASSB = `F2 & ~`F1 & `F0;     // 5
-assign SHR = `F2 & `F1 & ~`F0;       // 6
-assign SHL = `F2 & `F1 & `F0;        // 7
-
+assign ADD = ~`F3 & ~`F2 & ~`F1 & ~`F0;     // 0
+assign AND = ~`F3 & ~`F2 & ~`F1 & `F0;      // 1
+assign OR = ~`F3 & ~`F2 & `F1 & ~`F0;       // 2
+assign XOR = ~`F3 & ~`F2 & `F1 & `F0;       // 3
+assign PASSA = ~`F3 & `F2 & ~`F1 & ~`F0;    // 4
+assign PASSB = ~`F3 & `F2 & ~`F1 & `F0;     // 5
+assign SHR = ~`F3 & `F2 & `F1 & ~`F0;       // 6
+assign SHL = ~`F3 & `F2 & `F1 & `F0;        // 7
+assign COM = `F3 & ~`F2 & ~`F1 & ~`F0;      // 8
+	
 // carry outputs
 
 assign `co_left = (SHL & `da3) | (ADD & (`da3 & `db3 | bit2cy & (`da3 | `db3)));
