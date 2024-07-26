@@ -67,7 +67,6 @@ wire _unused =&{ena,clk, uio_in[0], uio_out[1-7], rst_n, 1'b0};
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
 
 wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR, COM;
-wire d0int, d1int, d2int, d3int;
 
 assign d0int = (ADD & (`da0 ^ `db0 ^ `ci_right)) |
 		(AND & `da0 & `db0)   |
