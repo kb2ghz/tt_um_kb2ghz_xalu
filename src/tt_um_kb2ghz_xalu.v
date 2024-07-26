@@ -114,10 +114,10 @@ assign bit2cy = `da2 & `db2 | bit1cy & (`da2 | `db2);
 
 // inverting output mode
 
-assign `d0 <= COM ^ d0int;
-assign `d1 <= COM ^ d1int;
-assign `d2 <= COM ^ d2int;
-assign `d3 <= COM ^ d3int;
+assign `d0 = COM ^ d0int;
+assign `d1 = COM ^ d1int;
+assign `d2 = COM ^ d2int;
+assign `d3 = COM ^ d3int;
 
 // function code decode
 
