@@ -76,6 +76,13 @@ assign uio_out[6] = 1'b0;
 assign uio_out[7] = 1'b0;
 	
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
+wire d0int, d1int, d2int, d3int; // bus connecting the 1's complement section and output port
+
+// implement 1's complement function
+assign `d0 = `COM ^ d0int;
+assign `d1 = `COM ^ d1int;
+assign `d2 = `COM ^ d2int;
+assign `d3 = `COM ^ d3int;
 
 wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR, COM;
 
@@ -135,7 +142,7 @@ assign SHL = `F2 & `F1 & `F0;        // 7
 assign `co_left = (SHL & `da3) | (ADD & (`da3 & `db3 | bit2cy & (`da3 | `db3)));
 assign `co_right = SHR & `da0;
 
-// output status
+// output status signals
 
 assign `ZERO = ~`d0 & ~`d1 & ~`d2 & ~`d3;
 assign `NEG_ZERO = `d0 & `d1 & `d2 & `d3;
