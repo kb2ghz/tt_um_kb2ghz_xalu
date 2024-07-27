@@ -40,7 +40,6 @@ assign uio_oe = 8'b00001001;
 `define F0 uio_in[4]
 `define F1 uio_in[5]
 `define F2 uio_in[6]	
-`define F3 uio_in[7]
 	
 // define carry outputs
 
@@ -61,9 +60,21 @@ assign uio_oe = 8'b00001001;
 `define ci_left uio_in[1]        // left side carry input
 `define ci_right uio_in[2]       // right side carry input
 
+// 1's complement mode
+`define COM uio_in[3]
+	
 // list unused inputs to prevent warnings
-wire _unused =&{ena,clk, uio_in[0], uio_out[1-7], rst_n, 1'b0};
-
+wire _unused =&{ena, clk, rst_n, 1'b0};
+assign uio_in[0] = 1'b0;
+assign uio_in[7] = 1'b0;
+assign uio_out[1] = 1'b0;
+assign uio_out[2] = 1'b0;
+assign uio_out[3] = 1'b0;
+assign uio_out[4] = 1'b0;
+assign uio_out[5] = 1'b0;
+assign uio_out[6] = 1'b0;
+assign uio_out[7] = 1'b0;
+	
 wire bit0cy, bit1cy, bit2cy;  // carry signals between full adders
 
 wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR, COM;
@@ -75,8 +86,7 @@ assign d0int = (ADD & (`da0 ^ `db0 ^ `ci_right)) |
 		(PASSA & `da0) |
 		(PASSB & `db0) |
 		(SHL & `ci_right) |
-	        (SHR & `da1) |
-	        (COM & ~`da0);
+	        (SHR & `da1);
 
 assign d1int = (ADD & (`da1 ^ `db1 ^ bit0cy)) |
 		(AND & `da1 & `db1)   |
@@ -85,8 +95,7 @@ assign d1int = (ADD & (`da1 ^ `db1 ^ bit0cy)) |
 		(PASSA & `da1) |
 		(PASSB & `db1) |
 		(SHL & `da0) |
-	        (SHR & `da2) |
-	        (COM & ~`da1);
+	        (SHR & `da2);
 
 assign d2int = (ADD & (`da2 ^ `db2 ^ bit1cy)) |
 		(AND & `da2 & `db2)   |
@@ -95,8 +104,7 @@ assign d2int = (ADD & (`da2 ^ `db2 ^ bit1cy)) |
 		(PASSA & `da2) |
 		(PASSB & `db2) |
 		(SHL & `da1) |
-	        (SHR & `da3) |
-	        (COM & ~`da2);
+	        (SHR & `da3);
 
 assign d3int = (ADD & (`da3 ^ `db3 ^ bit2cy)) |
 		(AND & `da3 & `db3)   |
@@ -105,8 +113,7 @@ assign d3int = (ADD & (`da3 ^ `db3 ^ bit2cy)) |
 		(PASSA & `da3) |
 		(PASSB & `db3) |
 		(SHL & `da2) |
-	        (SHR & `ci_left) |
-	        (COM & ~`da3);
+	        (SHR & `ci_left);
 
 assign bit0cy = `da0 & `db0 | `ci_right & (`da0 | `db0);
 assign bit1cy = `da1 & `db1 | bit0cy & (`da1 | `db1);
@@ -114,15 +121,14 @@ assign bit2cy = `da2 & `db2 | bit1cy & (`da2 | `db2);
 
 // function code decode
 
-assign ADD = ~`F3 & ~`F2 & ~`F1 & ~`F0;     // 0
-assign AND = ~`F3 & ~`F2 & ~`F1 & `F0;      // 1
-assign OR = ~`F3 & ~`F2 & `F1 & ~`F0;       // 2
-assign XOR = ~`F3 & ~`F2 & `F1 & `F0;       // 3
-assign PASSA = ~`F3 & `F2 & ~`F1 & ~`F0;    // 4
-assign PASSB = ~`F3 & `F2 & ~`F1 & `F0;     // 5
-assign SHR = ~`F3 & `F2 & `F1 & ~`F0;       // 6
-assign SHL = ~`F3 & `F2 & `F1 & `F0;        // 7
-assign COM = `F3 & ~`F2 & ~`F1 & ~`F0;      // 8
+assign ADD = ~`F2 & ~`F1 & ~`F0;     // 0
+assign AND = ~`F2 & ~`F1 & `F0;      // 1
+assign OR = ~`F2 & `F1 & ~`F0;       // 2
+assign XOR = ~`F2 & `F1 & `F0;       // 3
+assign PASSA = `F2 & ~`F1 & ~`F0;    // 4
+assign PASSB = `F2 & ~`F1 & `F0;     // 5
+assign SHR = `F2 & `F1 & ~`F0;       // 6
+assign SHL = `F2 & `F1 & `F0;        // 7
 	
 // carry outputs
 
