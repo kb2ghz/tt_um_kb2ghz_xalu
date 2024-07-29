@@ -82,7 +82,7 @@ assign `d1 = `COM ^ d1int;
 assign `d2 = `COM ^ d2int;
 assign `d3 = `COM ^ d3int;
 
-wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR, COM;
+wire ADD, AND, OR, XOR, PASSA, PASSB, SHL, SHR;
 
 assign d0int = (ADD & (`da0 ^ `db0 ^ `ci_right)) |
 		(AND & `da0 & `db0)   |
