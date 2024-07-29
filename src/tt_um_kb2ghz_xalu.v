@@ -65,8 +65,6 @@ assign uio_oe = 8'b00001001;
 	
 // list unused inputs to prevent warnings
 wire _unused =&{ena, clk, rst_n, 1'b0};
-assign uio_in[0] = 1'b0;
-assign uio_in[7] = 1'b0;
 assign uio_out[1] = 1'b0;
 assign uio_out[2] = 1'b0;
 assign uio_out[3] = 1'b0;
