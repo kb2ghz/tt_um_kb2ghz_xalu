@@ -38,5 +38,12 @@ async def test_project(dut):
     assert dut.uo_out.value == int("11000000",2)
     assert dut.uio_out == int("00000000",2)
 
+    # AND test
+    # OR test
+    # XOR test
+    # PASSA and PASSB tests
+    # SHR test
+    # SHL test
+
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
