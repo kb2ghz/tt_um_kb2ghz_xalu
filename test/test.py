@@ -34,7 +34,7 @@ async def test_project(dut):
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == int("10000000",2)
+    assert dut.uo_out.value == int("11000000",2)
     assert dut.uio_out == ("00000000",2)
 
     # Keep testing the module by changing the input values, waiting for
