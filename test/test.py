@@ -37,8 +37,12 @@ async def test_project(dut):
     # Change it to match the actual expected output of your module:
     assert dut.uo_out.value == int("11000000",2)
     assert dut.uio_out == int("00000000",2)
-
-    # AND test
+    
+    # AND test 0 and 0
+    dut.ui_in.value = int("00000000",2)
+    dut.uio_in.value = int("00010000",2)
+    assert dut.uo_out.value == int("11000000",2)
+    assert dut.uio_out == int("00000000",2)    
     # OR test
     # XOR test
     # PASSA and PASSB tests
