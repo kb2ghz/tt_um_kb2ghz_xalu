@@ -51,6 +51,9 @@ async def test_project(dut):
     #assert dut.uo_out.value == int("01001111",2)
     #assert dut.uio_out.value == int("10000000",2)
 
+    x1 = dut.io.out.value
+    x2 = dut.uio.out.value
+    await ClockCycles(dut.clk, 10)
     # AND function test C
     dut.ui_in.value = int("00000000",2)
     dut.uio_in.value = int("00010000",2)
