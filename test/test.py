@@ -25,7 +25,7 @@ async def test_project(dut):
 
     dut._log.info("Test project behavior")
 
-    # ADD function test
+    # ADD function test A
     # Set the input values you want to test
     dut.ui_in.value = int("00000000",2)
     dut.uio_in.value = int("00000000",2)
@@ -38,11 +38,30 @@ async def test_project(dut):
     assert dut.uo_out.value == int("11000000",2)
     assert dut.uio_out == int("00000000",2)
     
-    # AND test 0 and 0
+    # AND function test A
     dut.ui_in.value = int("00000000",2)
     dut.uio_in.value = int("00010000",2)
     assert dut.uo_out.value == int("11000000",2)
-    assert dut.uio_out == int("00000000",2)    
+    assert dut.uio_out == int("00000000",2)
+
+    # AND function test B
+    dut.ui_in.value = int("11111111",2)
+    dut.uio_in.value = int("00010000",2)
+    assert dut.uo_out.value == int("01001111",2)
+    assert dut.uio_out == int("10000000",2)
+
+    # AND function test C
+    dut.ui_in.value = int("00000000",2)
+    dut.uio_in.value = int("00010000",2)
+    assert dut.uo_out.value == int("01000101",2)
+    assert dut.uio_out == int("00000000",2)
+
+    # AND function test D
+    dut.ui_in.value = int("10101010",2)
+    dut.uio_in.value = int("00010000",2)
+    assert dut.uo_out.value == int("01001010",2)
+    assert dut.uio_out == int("00000000",2)
+
     # OR test
     # XOR test
     # PASSA and PASSB tests
