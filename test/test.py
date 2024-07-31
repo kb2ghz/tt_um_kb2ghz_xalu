@@ -4,8 +4,7 @@
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
-
-
+  
 @cocotb.test()
 async def test_project(dut):
     dut._log.info("Start")
@@ -36,35 +35,35 @@ async def test_project(dut):
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
     assert dut.uo_out.value == int("11000000",2)
-    assert dut.uio_out == int("00000000",2)
+    assert dut.uio_out.value == int("00000000",2)
     
     # AND function test A
     dut.ui_in.value = int("00000000",2)
     dut.uio_in.value = int("00010000",2)
     await ClockCycles(dut.clk, 10)
     assert dut.uo_out.value == int("11000000",2)
-    assert dut.uio_out == int("00000000",2)
+    assert dut.uio_out.value == int("00000000",2)
 
     # AND function test B
     #dut.ui_in.value = int("11111111",2)
     #dut.uio_in.value = int("00010000",2)
     #await ClockCycles(dut.clk, 10)
     #assert dut.uo_out.value == int("01001111",2)
-    #assert dut.uio_out == int("10000000",2)
+    #assert dut.uio_out.value == int("10000000",2)
 
     # AND function test C
     dut.ui_in.value = int("00000000",2)
     dut.uio_in.value = int("00010000",2)
     await ClockCycles(dut.clk, 10)
     assert dut.uo_out.value == int("01000101",2)
-    assert dut.uio_out == int("00000000",2)
+    assert dut.uio_out.value == int("00000000",2)
 
     # AND function test D
     dut.ui_in.value = int("10101010",2)
     dut.uio_in.value = int("00010000",2)
     await ClockCycles(dut.clk, 10)
     assert dut.uo_out.value == int("01001010",2)
-    assert dut.uio_out == int("00000000",2)
+    assert dut.uio_out.value == int("00000000",2)
 
     # OR test
     # XOR test
