@@ -51,13 +51,12 @@ async def test_project(dut):
     assert dut.uo_out.value == int("01001111",2)
     assert dut.uio_out.value == int("00000001",2)
 
-    #await ClockCycles(dut.clk, 10)
     # AND function test C
-    #dut.ui_in.value = int("00000000",2)
-    #dut.uio_in.value = int("00010000",2)
-    #await ClockCycles(dut.clk, 10)
-    #assert dut.uo_out.value == int("01000101",2)
-    #assert dut.uio_out.value == int("00000000",2)
+    dut.ui_in.value = int("01010101",2)
+    dut.uio_in.value = int("00010000",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("01000101",2)
+    assert dut.uio_out.value == int("00000000",2)
 
     # AND function test D
     #dut.ui_in.value = int("10101010",2)
