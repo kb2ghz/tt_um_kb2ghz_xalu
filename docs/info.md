@@ -45,4 +45,4 @@ observing the output on pins d0, d1, d2, d3.
 
 ## External hardware
 
-This project was tested uising an Altera FPGA (EP2C20F484C7).
+This project was tested uising an Intel/Altera FPGA (EP2C20F484C7).
