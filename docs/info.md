@@ -12,15 +12,25 @@ You can also include images in this folder and reference them in the markdown. E
 The project is a 4-bit ALU section that is usfull in mini and micro computer CPUs.
 
 Function Codes  F2  F1  F0
+
 --------------------------
+
 ADD             0   0   0   add inputs A and B
+
 AND             0   0   1   bitwise and operation of ports A & B
+
 OR              0   1   0   bitwise inclusive or of ports A & B
+
 XOR             0   1   1   bitwise exclusive or of ports A & B
+
 PASSA           1   0   0   pass input port A unmodified
+
 PASSB           1   0   1   pass input port B unmodified
+
 SHL             1   1   0   shift port A left one position
+
 SHR             1   1   1   shift port A right one position
+
 
 Assertion of input signal COM results in the 1's complement of the
 output function.
