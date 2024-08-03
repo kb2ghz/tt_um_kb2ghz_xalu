@@ -13,7 +13,7 @@ The project is a 4-bit ALU section that is usfull in mini and micro computer CPU
 
 | Function    |F2  F1  F0 | Description |
 | ------------|---------- | ------------ |
-| ADD         |     0   0   0 |   add inputs A and B | 
+| ADD         |0   0   0 |   add inputs A and B | 
 
 AND              0   0   1    bitwise and operation of ports A & B 
 
