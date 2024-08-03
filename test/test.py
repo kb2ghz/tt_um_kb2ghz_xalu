@@ -108,11 +108,11 @@ async def test_project(dut):
     assert dut.uio_out.value == int("00000001",2)
 
     # XOR function test C
-    #dut.ui_in.value = int("00000000",2)
-    #dut.uio_in.value = int("00110000",2)
-    #await ClockCycles(dut.clk, 10)
-    #assert dut.uo_out.value == int("11000000",2)
-    #assert dut.uio_out.value == int("00000000",2)
+    dut.ui_in.value = int("11110000",2)
+    dut.uio_in.value = int("00110000",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("00001111",2)
+    assert dut.uio_out.value == int("00000001",2)
 
     # XOR function test D
     #dut.ui_in.value = int("00000000",2)
