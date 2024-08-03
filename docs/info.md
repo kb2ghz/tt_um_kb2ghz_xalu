@@ -11,10 +11,13 @@ You can also include images in this folder and reference them in the markdown. E
 
 The project is a 4-bit ALU section that is usfull in mini and micro computer CPUs.
 
-| Function Codes |  F2  F1  F0 | Description |
-| -------------------------- |
-| ADD             | 0   0   0 |   add inputs A and B |
-| AND             | 0   0   1 |   bitwise and operation of ports A & B |
+Function Codes   F2  F1  F0  Description |
+
+--------------------------
+
+ADD              0   0   0    add inputs A and B 
+
+AND              0   0   1    bitwise and operation of ports A & B 
 
 OR              0   1   0   bitwise inclusive or of ports A & B
 
