@@ -150,7 +150,19 @@ async def test_project(dut):
     assert dut.uio_out.value == int("00000001",2)
 
     # SHR function test A
+    dut.ui_in.value = int("00001010",2)
+    dut.uio_in.value = int("00110010",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("00001101",2)
+    assert dut.uio_out.value == int("00000000",2)
+
     # SHR function test B
+    dut.ui_in.value = int("00001010",2)
+    dut.uio_in.value = int("00110000",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("00000101",2)
+    assert dut.uio_out.value == int("00000000",2)
+
     # SHR function test C
     # SHR function test D
 
