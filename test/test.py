@@ -171,7 +171,7 @@ async def test_project(dut):
     assert dut.uio_out.value == int("00000000",2)
 
     # SHR function test D
-    dut.ui_in.value = int("00001010",2)
+    dut.ui_in.value = int("00000101",2)
     dut.uio_in.value = int("01100010",2)
     await ClockCycles(dut.clk, 10)
     assert dut.uo_out.value == int("00101010",2)
