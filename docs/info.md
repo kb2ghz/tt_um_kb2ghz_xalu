@@ -23,12 +23,6 @@ The project is a 4-bit ALU section that is usfull in mini and micro computer CPU
 |SHR         |1   1   1 | shift port A right one position |
 
 
-Assertion of input signal COM results in the 1's complement of the
-output function.
-
-Signal ci_right is added when generating the ADD function. The carry output
-resulting from an ADD operation appears on signal co_left.
-
 ## How to test
 
 This device can be tested by inputting data on the two input ports (A/B), a function code (F0, F1, F2) and 
@@ -41,7 +35,7 @@ observing the output on pins d0, d1, d2, d3.
 | ZERO | output | this signal is asserted when the output function's value is +0 |
 | NEG_ZERO | output | this signal is asserted when the output functions's value is -0 |
 | ci_right | input | when performing SHL this signal shifted into position d0, when performing ADD this bit is added to output value |
-| ci_left | input | when performing SHR this signal is moved into position d3 |
+| ci_left | input | when performing SHR this signal is moved into position d3, when ADDing ci_left is the input carry value |
 | co_right| output | when performing SHR this signal will be equal to the unshifted value of d0 |
 | co_left | output | when performing SHR this signal is equal to the unshifted value of d3, when ADDing co_left is the carry output from the addition operation |
 
