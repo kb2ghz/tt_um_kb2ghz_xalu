@@ -41,7 +41,9 @@ observing the output on pins d0, d1, d2, d3.
 | ZERO | output | this signal is asserted when the output function's value is +0 |
 | NEG_ZERO | output | this signal is asserted when the output functions's value is -0 |
 | ci_right | input | when performing SHL this signal shifted into position d0, when performing ADD this bit is added to output value |
-
+| ci_left | input | when performing SHR this signal is moved into position d3 |
+| co_right| output | when performing SHR this signal will be equal to the unshifted value of d0 |
+| co_left | output | when performing SHR this signal is equal to the unshifted value of d3, when ADDing co_left is the carry output from the addition operation |
 
 ## External hardware
 
