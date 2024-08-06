@@ -192,10 +192,18 @@ async def test_project(dut):
     assert dut.uio_out.value == int("00000001",2)
 
     # SHL function test C
-
-
+    dut.ui_in.value = int("00000101",2)
+    dut.uio_in.value = int("01110000",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("00001010",2)
+    assert dut.uio_out.value == int("00000000",2)
+  
     # SHL function test D
-
+    dut.ui_in.value = int("00000101",2)
+    dut.uio_in.value = int("01110100",2)
+    await ClockCycles(dut.clk, 10)
+    assert dut.uo_out.value == int("00000101",2)
+    assert dut.uio_out.value == int("00000000",2)
 
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
