@@ -28,7 +28,7 @@ The project is a 4-bit ALU section that is usfull in mini and micro computer CPU
 This device can be tested by inputting data on the two input ports (A/B), a function code (F0, F1, F2) and 
 observing the output on pins d0, d1, d2, d3.
 
-| Signal | Direction | Description |
+|Signal | Direction | Description |
 | --- | --- | --- |
 | d0, d1, d2, d3 | output| function output |
 | COM | input | asserion of this signal converts the output function to its 1's complement form |
