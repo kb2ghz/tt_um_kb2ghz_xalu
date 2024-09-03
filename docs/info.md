@@ -31,7 +31,7 @@ observing the output on pins d0, d1, d2, d3.
 |Signal | Direction | Description |
 | --- | --- | --- |
 | d0, d1, d2, d3 | output| function output |
-| COM | input | asserion of this signal converts the output function to its 1's complement form |
+| COM | input | assertion of this signal converts the output function to its 1's complement form |
 | ZERO | output | this signal is asserted when the output function's value is +0 |
 | NEG_ZERO | output | this signal is asserted when the output functions's value is -0 |
 | ci_right | input | when performing SHL this signal shifted into position d0, when performing ADD this bit is added to output value |
