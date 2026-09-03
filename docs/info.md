@@ -30,6 +30,8 @@ observing the output on pins d0, d1, d2, d3.
 
 |Signal | Direction | Description |
 | --- | --- | --- |
+| da0, da1, da2, da3 | input | input port A |
+| db0, db1, db2, db3 | input | input port B |
 | d0, d1, d2, d3 | output| function output |
 | COM | input | assertion of this signal converts the output function to its 1's complement form |
 | ZERO | output | this signal is asserted when the output function's value is +0 |
